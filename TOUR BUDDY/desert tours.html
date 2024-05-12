@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>wildlife</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+
+        main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .item {
+            width: 200px;
+            height: 300px;
+            list-style-type: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            background-position: center;
+            background-size: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
+            transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+        }
+
+        .item:nth-child(1),
+        .item:nth-child(2) {
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform: none;
+            border-radius: 0;
+            box-shadow: none;
+            opacity: 1;
+        }
+
+        .item:nth-child(3) {
+            left: 50%;
+        }
+
+        .item:nth-child(4) {
+            left: calc(50% + 220px);
+        }
+
+        .item:nth-child(5) {
+            left: calc(50% + 440px);
+        }
+
+        .item:nth-child(6) {
+            left: calc(50% + 660px);
+            opacity: 0;
+        }
+
+        .content {
+            width: min(30vw, 400px);
+            position: absolute;
+            top: 50%;
+            left: 3rem;
+            transform: translateY(-50%);
+            font: 400 0.85rem helvetica, sans-serif;
+            color: white;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 12px;
+
+        }
+
+        .content .title {
+            font-family: 'arial-black';
+            text-transform: uppercase;
+        }
+
+        .content .description {
+            line-height: 1.7;
+            margin: 1rem 0 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        .content button {
+            width: fit-content;
+            background-color: rgba(0, 0, 0, 0.1);
+            color: white;
+            border: 2px solid white;
+            border-radius: 0.25rem;
+            padding: 0.75rem;
+            cursor: pointer;
+        }
+
+        .item:nth-of-type(2) .content {
+            display: block;
+            animation: show 0.75s ease-in-out 0.3s forwards;
+        }
+
+        @keyframes show {
+            0% {
+                filter: blur(5px);
+                transform: translateY(calc(-50% + 75px));
+            }
+
+            100% {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .arrow-container {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            user-select: none;
+        }
+
+        .arrow-left,
+        .arrow-right {
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 18px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .arrow-left:hover,
+        .arrow-right:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 650px) {
+            .content .title {
+                font-size: 0.9rem;
+            }
+
+            .content .description {
+                font-size: 0.65rem;
+            }
+
+            .content button {
+                font-size: 0.7rem;
+            }
+
+            .item {
+                width: 130px;
+                height: 220px;
+            }
+
+            .item:nth-child(4) {
+                left: calc(50% + 140px);
+            }
+
+            .item:nth-child(5) {
+                left: calc(50% + 280px);
+            }
+
+            .item:nth-child(6) {
+                left: calc(50% + 420px);
+                opacity: 0;
+            }
+        }
+
+        @media (min-width: 650px) and (max-width: 900px) {
+            .content .title {
+                font-size: 1rem;
+            }
+
+            .content .description {
+                font-size: 0.7rem;
+            }
+
+            .content button {
+                font-size: 0.7rem;
+            }
+
+            .item {
+                width: 160px;
+                height: 270px;
+            }
+
+            .item:nth-child(4) {
+                left: calc(50% + 170px);
+            }
+
+            .item:nth-child(5) {
+                left: calc(50% + 340px);
+            }
+
+            .item:nth-child(6) {
+                left: calc(50% + 510px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <ul class='slider'>
+            <li class='item' style="background-image: url('thar\ desert.jpeg')">
+                <div class='content'>
+                    <h1 class='title'>"Thar Desert"</h1>
+                    <p class='description' style="font-size: 20px;"> The Thar Desert, also known as the Great Indian
+                        Desert, is an arid region in the north-western part of the Indian subcontinent that covers an
+                        area of 200,000 km² in India and Pakistan.
+                    </p>
+                    <a href="https://www.makemytrip.com/flights/chandigarh-jaipur-cheap-airtickets.html"> <button>BOOK NOW</button></a>
+                </div>
+
+            </li>
+            <li class='item' style="background-image: url('rann\ of\ kuch.jpeg')">
+                <div class='content'>
+                    <h2 class='title'>"Rann of Kutch"</h2>
+                    <p class='description' style="font-size: 20px;">The Great Rann of Kutch is a salt marsh in the Thar
+                        Desert in the Kutch District of Gujarat, India. It is about 7500 km² in area and is reputed to
+                        be one of the largest salt deserts in the world. This area has been inhabited by the Kutchi
+                        people.</p>
+                    <a href="https://www.makemytrip.com/flights/chandigarh-bhuj-cheap-airtickets.html"><button>BOOK NOW</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('Cholistan\ Desert.jpg')">
+                <div class='content'>
+                    <h2 class='title'>"Cholistan Desert"</h2>
+                    <p class='description' style="font-size: 20px;">The Cholistan Desert, also locally known as Rohi, is
+                        a desert in the southern part of Punjab, Pakistan that forms part of the Greater Thar Desert,
+                        which extends to Sindh province and the Indian state of Rajasthan. It is one of two large
+                        deserts in Punjab, the other being the Thal Desert.</p>
+                    <a href="https://www.makemytrip.com/international-flights/chandigarh-pakistan-cheap-airtickets.html"> <button>BOOK NOW</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('little\ rann\ of\ kuch.jpeg')">
+                <div class='content'>
+                    <h2 class='title'>"Little Rann of Kutch"</h2>
+                    <p class='description' style="font-size: 20px;">
+                        The Little Rann of Kutch is a salt marsh which is part of the Rann of Kutch in Kutch district,
+                        Gujarat, India.
+                    </p>
+                    <a href="https://www.makemytrip.com/flights/chandigarh-bhuj-cheap-airtickets.html"> <button>BOOK NOW</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('patwon-ki-haveli-jaisalmer.avif')">
+                <div class='content'>
+                    <h2 class='title'>"Jaisalmer"</h2>
+                    <p class='description' style="font-size: 20px;">
+                        "The Golden city", is a city in the Indian state of Rajasthan, located 575 kilometres (357 mi)
+                        west of the state capital Jaipur. It is the administrative headquarters of Jaisalmer District.
+                        Before Indian independence, the town served as the capital of the Jaisalmer State, ruled by the
+                        Bhati Rajputs.</p>
+                    <a href="https://www.makemytrip.com/flights/chandigarh-jaisalmer-cheap-airtickets.html"><button>BOOK NOW</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('cold\ desert.jpeg')">
+                <div class='content'>
+                    <h2 class='title'>"Cold Desert, Himachal Pradesh."</h2>
+                    <p class='description' style="font-size: 20px;">Cold Desert Biosphere Reserve is a biosphere reserve
+                        located in the Western Himalayas, within Himachal Pradesh in North India. It was established as
+                        a biosphere reserve in August 2009. </p>
+                    <a href="https://www.makemytrip.com/international-flights/nepal/chandigarh-leh-cheap-airtickets.html"><button>BOOK NOW</button></a>
+                </div>
+            </li>
+        </ul>
+        <div class="arrow-container">
+            <div class="arrow-left">&lt;</div>
+            <div class="arrow-right">&gt;</div>
+        </div>
+    </main>
+
+    <script type="module">
+        const slider = document.querySelector('.slider');
+
+        function activate(e) {
+            const items = document.querySelectorAll('.item');
+            if (e.target.matches('.arrow-right')) {
+                slider.append(items[0]);
+            } else if (e.target.matches('.arrow-left')) {
+                slider.prepend(items[items.length - 1]);
+            }
+        }
+
+        document.addEventListener('click', activate, false);
+
+    </script>
+
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

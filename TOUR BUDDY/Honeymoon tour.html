@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Honeymoon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+
+        main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .item {
+            width: 200px;
+            height: 300px;
+            list-style-type: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            background-position: center;
+            background-size: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
+            transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+        }
+
+        .item:nth-child(1),
+        .item:nth-child(2) {
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform: none;
+            border-radius: 0;
+            box-shadow: none;
+            opacity: 1;
+        }
+
+        .item:nth-child(3) {
+            left: 50%;
+        }
+
+        .item:nth-child(4) {
+            left: calc(50% + 220px);
+        }
+
+        .item:nth-child(5) {
+            left: calc(50% + 440px);
+        }
+
+        .item:nth-child(6) {
+            left: calc(50% + 660px);
+            opacity: 0;
+        }
+
+        .content {
+            width: min(30vw, 400px);
+            position: absolute;
+            top: 50%;
+            left: 3rem;
+            transform: translateY(-50%);
+            font: 400 0.85rem helvetica, sans-serif;
+            color: white;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 12px;
+
+        }
+
+        .content .title {
+            font-family: 'arial-black';
+            text-transform: uppercase;
+        }
+
+        .content .description {
+            line-height: 1.7;
+            margin: 1rem 0 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        .content button {
+            width: fit-content;
+            background-color: rgba(0, 0, 0, 0.1);
+            color: white;
+            border: 2px solid white;
+            border-radius: 0.25rem;
+            padding: 0.75rem;
+            cursor: pointer;
+        }
+
+        .item:nth-of-type(2) .content {
+            display: block;
+            animation: show 0.75s ease-in-out 0.3s forwards;
+        }
+
+        @keyframes show {
+            0% {
+                filter: blur(5px);
+                transform: translateY(calc(-50% + 75px));
+            }
+
+            100% {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .arrow-container {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            user-select: none;
+        }
+        .arrow-left,
+.arrow-right {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+        .arrow-left:hover,
+        .arrow-right:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 650px) {
+            .content .title {
+                font-size: 0.9rem;
+            }
+
+            .content .description {
+                font-size: 0.65rem;
+            }
+
+            .content button {
+                font-size: 0.7rem;
+            }
+
+            .item {
+                width: 130px;
+                height: 220px;
+            }
+
+            .item:nth-child(4) {
+                left: calc(50% + 140px);
+            }
+
+            .item:nth-child(5) {
+                left: calc(50% + 280px);
+            }
+
+            .item:nth-child(6) {
+                left: calc(50% + 420px);
+                opacity: 0;
+            }
+        }
+
+        @media (min-width: 650px) and (max-width: 900px) {
+            .content .title {
+                font-size: 1rem;
+            }
+
+            .content .description {
+                font-size: 0.7rem;
+            }
+
+            .content button {
+                font-size: 0.7rem;
+            }
+
+            .item {
+                width: 160px;
+                height: 270px;
+            }
+
+            .item:nth-child(4) {
+                left: calc(50% + 170px);
+            }
+
+            .item:nth-child(5) {
+                left: calc(50% + 340px);
+            }
+
+            .item:nth-child(6) {
+                left: calc(50% + 510px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <ul class='slider'>
+            <li class='item' style="background-image: url('gateway\ of\ india.jpg')">
+                <div class='content'>
+                    <h1 class='title'>"gateway of India"</h1>
+                    <p class='description' style="font-size: 20px;"> The Gateway of India is an arch-monument completed
+                        in 1924 on the waterfront of Mumbai (Bombay), India. It was erected to commemorate the landing
+                        of George V for his coronation as the Emperor of India in December 1911 at Strand Road near
+                        Wellington Fountain. He was the first British monarch to visit India.</p>
+                    <a href="https://en.wikipedia.org/wiki/Gateway_of_India"> <button>Read More</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('munnar.jpg')">
+                <div class='content'>
+                    <h2 class='title'>"Munnar"</h2>
+                    <p class='description' style="font-size: 20px;">Gir Forest National Park is a wildlife sanctuary in
+                        Munnar is a town and hill station located in the Idukki district of the southwestern Indian
+                        state of Kerala. Munnar is situated at around 1,600 metres (5,200 ft) above mean sea level,[4]
+                        in the Western Ghats mountain range. Munnar is also called the "Kashmir of South India" and is a
+                        popular honeymoon destination.</p>
+                    <a href="https://en.wikipedia.org/wiki/Munnar"><button>Read More</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('Banglore\ palace.jpg')">
+                <div class='content'>
+                    <h2 class='title'>"Banglore Palace"</h2>
+                    <p class='description' style="font-size: 20px;">Bangalore Palace is a 19th century royal palace
+                        located in Bangalore, Karnataka, India, in an area that was owned by the Rev. John Garrett, the
+                        first principal of the Central High School in Bangalore, now famous as Central College. The
+                        commencement of the construction of the palace is attributed to him.The palace belongs to
+                        Maharaja Srikantadatta Narasimharaja Wadiyar and his wife Her Highness Pramoda Devi Wadiyar.</p>
+                    <a href="https://en.wikipedia.org/wiki/Bangalore_Palace"> <button>Read More</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('udaipur.jpeg')">
+                <div class='content'>
+                    <h2 class='title'>"Udaipur"</h2>
+                    <p class='description' style="font-size: 20px;">
+                        Udaipur is a city and municipal
+                        corporation in Udaipur district of the state of Rajasthan, India.[3][4] It is also known as the
+                        'City of Lakes' and serves as the administrative headquarters of Udaipur district. It is the
+                        historic capital of the kingdom of Mewar in the former Rajputana Agency. It was founded in 1559
+                        by Udai Singh II of the Sisodia clan of Rajputs, when he shifted his capital from the city of
+                        Chittorgarh to Udaipur after Chittorgarh was besieged by Akbar. It remained as the capital city
+                        till 1818 when it became a British princely state, and thereafter the Mewar province became a
+                        part of Rajasthan when India gained independence in 1947.
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/Udaipur"> <button>Read More</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('chennai.jpeg')">
+                <div class='content'>
+                    <h2 class='title'>"Chennai"</h2>
+                    <p class='description' style="font-size: 20px;">
+                        Chennai is the capital city of Tamil Nadu, the southernmost state of India. It is the state's
+                        primate city and is located on the Coromandel Coast of the Bay of Bengal. According to the 2011 Indian census,
+                        Chennai is the sixth-most populous city in India and forms the fourth-most populous urban
+                        agglomeration. Incorporated in 1688, the Greater Chennai Corporation is the oldest municipal
+                        corporation of India and the second oldest in the world after London.
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/Chennai"><button>Read More</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('hydrabad.jpeg')">
+                <div class='content'>
+                    <h2 class='title'>"Hyderabad"</h2> 
+                    <p class='description' style="font-size: 20px;">Sundarbans National Park is a large coastal mangrove
+                        Hyderabad is the capital and largest city of the Indian state of Telangana. It occupies 650 km2 (250 sq mi)
+                        on the Deccan Plateau along the banks of the Musi River, in the northern part of Southern India.
+                        With an average altitude of 542 m (1,778 ft), much of Hyderabad is situated on hilly terrain
+                        around artificial lakes, including the Hussain Sagar lake, predating the city's founding, in the
+                        north of the city centre. </p>
+                        <a href="https://en.wikipedia.org/wiki/Hyderabad"><button>Read More</button></a>
+                </div>
+            </li>
+        </ul>
+        <div class="arrow-container">
+            <div class="arrow-left" style="width: 45px; height: 45px; font-size: x-large; padding-top: 5px;">&lt;</div> 
+            <div class="arrow-right" style="width: 45px; height: 45px; font-size: x-large; padding-top: 5px;">&gt;</div> 
+        </div>
+    </main>
+
+    <script type="module">
+        const slider = document.querySelector('.slider');
+ 
+ function activate(e) {
+     const items = document.querySelectorAll('.item');
+     if (e.target.matches('.arrow-right')) {
+         slider.append(items[0]);
+     } else if (e.target.matches('.arrow-left')) {
+         slider.prepend(items[items.length - 1]);
+     }
+ }
+ 
+ document.addEventListener('click', activate, false);
+ 
+     </script>
+ 
+     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+ 
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Holiday by interest</title>
+    <style>
+        body {
+            background-image: url('Holiday by interest.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .card {
+            width: calc(25% - 20px);
+        
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .overlay p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand" href="">
+            <img src="tour pic.jpg" alt="Logo" width="30" height="30"
+                class="rounded-circle d-inline-block align-top mr-2" loading="lazy"> Tour buddy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="tourbuddy.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About.html">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact us.html">Contact us</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+        </div>
+    </nav>
+    <h1 style="color: white; margin-left: 20px;">More tours</h1>
+    <div class="container">
+
+        <div class="card-container">
+
+            <div class="card">
+                <a href="wild life.html"><img src="wildlife.jpg" class="card-img-top" alt="Image">
+                    <div class="overlay">
+                        <p>Wildlife Tours</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+               <a href="Honeymoon tour.html"> <img src="imresizer-1710341546822.jpg" class="card-img-top" alt="Image"></a>
+                <div class="overlay">
+                    <p>Honeymoon Tours</p>
+                </div>
+            </div>
+            <div class="card">
+            <a href="hill station.html">  <img src="hills resize.jpg" class="card-img-top" alt="Image"></a>
+                <div class="overlay">
+                    <p>Hills station Tours</p>
+                </div>
+            </div>
+            <div class="card">
+                <a href="heritage tours.html"><img src="hawamahal.jpg" class="card-img-top" alt="Image"></a>
+                <div class="overlay">
+                    <p>Heritage Tour</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="card-container">
+
+                <div class="card">
+                    <a href="Pilgrimage Tours.html"><img src="pilgrime.jpg" class="card-img-top" alt="Image"></a>
+                    <div class="overlay">
+                        <p>Pilgrimage Tours</p>
+                    </div>
+                </div>
+                <div class="card">
+                   <a href="Adventure Tours.html"> <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSUM7e-5G_YabcI2sPRJHamOcTy7AjYwsqNhZV7JR2TVlbEiCq9" class="card-img-top" alt="Image"></a>
+
+                    <div class="overlay">
+                        <p>Adventure Tours</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="Tracking Tours.html"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRqR2yYskhzmlVEb67aLaipGBFYqTUdUMwhv6zsA-z5CBqojvpu" class="card-img-top" alt="Image">
+                        <div class="overlay"></a>
+                        <p>Tracking Tours</p>
+                    </div>
+                </div>
+                <div class="card">
+                   <a href="Beach Tours.html"> <img src="beach resize.jpg" class="card-img-top" alt="Image"></a>
+                    <div class="overlay">
+                        <p>Beach Tours</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="desert tours.html"> <img src="desets_in_india.jpg" class="card-img-top" alt="Image" style="height: 168px;"></a>
+                     <div class="overlay">
+                         <p>Deserts Tours</p>
+                     </div>
+                 </div>
+            </div>
+
+        </div>
+    </div>
+<center>    <h1 style="color: white; padding-top: 0px;">More tours coming soon..</h1>
+</center>
+</body>
+
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>beaches</title>
+    <style>
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+
+        main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .item {
+            width: 200px;
+            height: 300px;
+            list-style-type: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            background-position: center;
+            background-size: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
+            transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+        }
+
+        .item:nth-child(1),
+        .item:nth-child(2) {
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform: none;
+            border-radius: 0;
+            box-shadow: none;
+            opacity: 1;
+        }
+
+        .item:nth-child(3) {
+            left: 50%;
+        }
+
+        .item:nth-child(4) {
+            left: calc(50% + 220px);
+        }
+
+        .item:nth-child(5) {
+            left: calc(50% + 440px);
+        }
+
+        .item:nth-child(6) {
+            left: calc(50% + 660px);
+            opacity: 0;
+        }
+
+        .content {
+            width: min(30vw, 400px);
+            position: absolute;
+            top: 50%;
+            left: 3rem;
+            transform: translateY(-50%);
+            font: 400 0.85rem helvetica, sans-serif;
+            color: white;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 12px;
+
+        }
+
+        .content .title {
+            font-family: 'arial-black';
+            text-transform: uppercase;
+        }
+
+        .content .description {
+            line-height: 1.7;
+            margin: 1rem 0 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        .content button {
+            width: fit-content;
+            background-color: rgba(0, 0, 0, 0.1);
+            color: white;
+            border: 2px solid white;
+            border-radius: 0.25rem;
+            padding: 0.75rem;
+            cursor: pointer;
+        }
+
+        .item:nth-of-type(2) .content {
+            display: block;
+            animation: show 0.75s ease-in-out 0.3s forwards;
+        }
+
+        @keyframes show {
+            0% {
+                filter: blur(5px);
+                transform: translateY(calc(-50% + 75px));
+            }
+
+            100% {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .arrow-container {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            user-select: none;
+        }
+        .arrow-left,
+.arrow-right {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+        .arrow-left:hover,
+        .arrow-right:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 650px) {
+            .content .title {
+                font-size: 0.9rem;
+            }
+
+            .content .description {
+                font-size: 0.65rem;
+            }
+
+            .content button {
+                font-size: 0.7rem;
+            }
+
+            .item {
+                width: 130px;
+                height: 220px;
+            }
+
+            .item:nth-child(4) {
+                left: calc(50% + 140px);
+            }
+
+            .item:nth-child(5) {
+                left: calc(50% + 280px);
+            }
+
+            .item:nth-child(6) {
+                left: calc(50% + 420px);
+                opacity: 0;
+            }
+        }
+
+        @media (min-width: 650px) and (max-width: 900px) {
+            .content .title {
+                font-size: 1rem;
+            }
+
+            .content .description {
+                font-size: 0.7rem;
+            }
+
+            .content button {
+                font-size: 0.7rem;
+            }
+
+            .item {
+                width: 160px;
+                height: 270px;
+            }
+
+            .item:nth-child(4) {
+                left: calc(50% + 170px);
+            }
+
+            .item:nth-child(5) {
+                left: calc(50% + 340px);
+            }
+
+            .item:nth-child(6) {
+                left: calc(50% + 510px);
+                opacity: 0;
+            }
+        }   </style>
+</head>
+
+<body>
+
+    <main>
+        <ul class='slider'>
+            <li class='item' style="background-image: url('Havelock\,Andaman&_Nicobar_Islands.jpg')">
+                <div class='content'>
+                    <h1 class='title'>"Radhanagar Beach, Andaman and Nicobar Islands"</h1>
+                    <p class='description' style="font-size: 20px;">  Located on Havelock Island, Radhanagar Beach is renowned for its pristine white sands, crystal-clear turquoise waters, and stunning sunsets. It's often considered one of the best beaches in Asia.
+                           <a href="https://www.makemytrip.com/flights/chandigarh-portblair-cheap-airtickets.html"> <button>BOOK NOW</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('Cola_Beach_Bay_South_Goa_Jan19_DSC06186.jpg')">
+                <div class='content'>
+                    <h2 class='title'>"Agonda Beach, Goa"</h2>
+                    <p class='description' style="font-size: 20px;"> Unlike the crowded beaches of North Goa, Agonda Beach in South Goa offers a more serene and secluded atmosphere. Its long stretch of soft sands, lined with palm trees, makes it perfect for relaxation and quiet walks.</p>
+                    <a href="https://www.makemytrip.com/flights/chandigarh-goa-cheap-airtickets.html"><button>BOOK NOW</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('varkala_cliff.jpg')">
+                <div class='content'>
+                    <h2 class='title'>"Varkala Beach, Kerala"</h2>
+                    <p class='description' style="font-size: 20px;"> Nestled along the cliffs of Varkala, this beach offers breathtaking views of the Arabian Sea. The cliffside promenade is dotted with shops, cafes, and guesthouses, making it a unique beach destination in India.
+                    <a href="https://www.makemytrip.com/routeplanner/chandigarh-varkala.html"> <button>BOOK NOW</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('Palolem_sunset.jpg')">
+                <div class='content'>
+                    <h2 class='title'>"Palolem Beach, Goa"</h2>
+                    <p class='description' style="font-size: 20px;">
+                        Another gem in South Goa, Palolem Beach is famous for its crescent-shaped shoreline fringed by coconut palms. It's a great spot for swimming, kayaking, and dolphin-spotting boat trips.</p>
+                    <a href="https://www.makemytrip.com/flights/chandigarh-goa-cheap-airtickets.html"> <button>BOOK NOW</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('Kovalam_beach_trivandrum_kerala.jpg')">
+                <div class='content'>
+                    <h2 class='title'>"Kovalam Beach, Kerala"</h2>
+                    <p class='description' style="font-size: 20px;">
+                        This internationally renowned beach destination comprises three crescent-shaped beaches separated by rocky outcroppings. Kovalam offers a range of water activities, Ayurvedic treatments, and beachfront accommodations.
+                    <a href="https://www.makemytrip.com/routeplanner/chandigarh-varkala.html"><button>BOOK NOW</button></a>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('Marari_Beach_Fisherman.jpg')">
+                <div class='content'>
+                    <h2 class='title'>"Marari Beach, Kerala"</h2>
+                    <p class='description' style="font-size: 20px;"> Tucked away in a tranquil corner of Kerala, Marari Beach is a peaceful retreat with coconut palm groves, golden sands, and clear waters. It's an ideal destination for those seeking a laid-back beach experience</p>
+                        <a href="https://www.makemytrip.com/routeplanner/chandigarh-varkala.html"><button>BOOK NOW</button></a>
+                </div>
+            </li>
+        </ul>
+        <div class="arrow-container">
+            <div class="arrow-left" style="width: 45px; height: 45px; font-size: x-large; padding-top: 5px;">&lt;</div> 
+            <div class="arrow-right" style="width: 45px; height: 45px; font-size: x-large; padding-top: 5px;">&gt;</div> 
+        </div>
+    </main>
+
+    <script type="module">
+        const slider = document.querySelector('.slider');
+ 
+ function activate(e) {
+     const items = document.querySelectorAll('.item');
+     if (e.target.matches('.arrow-right')) {
+         slider.append(items[0]);
+     } else if (e.target.matches('.arrow-left')) {
+         slider.prepend(items[items.length - 1]);
+     }
+ }
+ 
+ document.addEventListener('click', activate, false);
+ 
+     </script>
+ 
+     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+ 
+</body>
+
+</html>
